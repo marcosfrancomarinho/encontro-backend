@@ -1,5 +1,5 @@
 ###
-POST http://localhost:3000/notification
+POST https://encontro-backend-aysb.onrender.com/notification
 Content-Type: application/json
 
 {
@@ -9,3 +9,10 @@ Content-Type: application/json
 
 
 ####
+POST http://localhost:3000/notification
+Content-Type: application/json
+
+{
+    "to":"marcosmarinho19998@gmail.com",
+    "subject":"marcosmarinho19998@gmail.com"
+}
