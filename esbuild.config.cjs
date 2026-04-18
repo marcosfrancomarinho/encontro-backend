@@ -1,13 +1,12 @@
 const { build } = require('esbuild');
-const { dependencies, devDependencies } = require('./package.json');
-const { main } = require('./package.json');
 
 build({
-  entryPoints: [main],
+  entryPoints: ["src/main.ts"],
   bundle: true,
-  outfile: './dist/bundle.cjs',
+  outfile: 'api/index.js', 
   minify: true,
   platform: 'node',
-  external: [...Object.keys(dependencies), ...Object.keys(devDependencies)],
-  target: ["ES2015"],
+  format: 'esm',
+  target: ['node18'],
+  sourcemap: false,
 }).catch(() => process.exit(1));

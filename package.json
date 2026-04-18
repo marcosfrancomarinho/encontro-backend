@@ -4,7 +4,7 @@
   "type": "module",
   "main": "src/main.ts",
   "scripts": {
-    "start": "node dist/bundle.cjs",
+    "start": "node dist/bundle.js",
     "dev": "tsx --watch src/main.ts",
     "build": "node esbuild.config.cjs",
     "type": "tsc --watch --noEmit"
@@ -13,7 +13,8 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "nodemailer": "^8.0.5"
+    "nodemailer": "^8.0.5",
+    "resend": "^6.12.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

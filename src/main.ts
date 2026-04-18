@@ -1,24 +1,17 @@
 import express from 'express';
-import { NotificationController } from './controller/notification.controller.js';
 import cors from 'cors';
+import { NotificationController } from './controller/notification.controller.js';
 import { NotificationServices } from './core/services/notification.services.js';
-import { NodemailNotification } from './infra/nodemail.notification.js';
-import 'dotenv/config';
+import { ResendNotification } from './infra/resend.notification.js';
+const app = express();
 
-function main() {
-  const app = express();
-  const notification = new NodemailNotification();
-  const notificationServices = new NotificationServices(notification);
-  const notificationController = new NotificationController(notificationServices);
+const notification = new ResendNotification();
+const notificationServices = new NotificationServices(notification);
+const notificationController = new NotificationController(notificationServices);
 
-  app.use(cors());
-  app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
-  app.post('/notification', (request, response) => notificationController.execute(request, response));
+app.post('/notification', (req, res) => notificationController.execute(req, res));
 
-  app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-  });
-}
-
-main();
+export default app;
