@@ -1,0 +1,8 @@
+###
+POST http://localhost:3000/notification
+Content-Type: application/json
+
+{
+    "to":"marcosmarinho19998@gmail.com",
+    "subject":"marcosmarinho19998@gmail.com"
+}
